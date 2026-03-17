@@ -61,4 +61,5 @@ Returns:
 
  https://lab.stellar.org/r/testnet/contract/CDM3MJS6PXQGSZ2GM65O6PNELBIZSZMWWZOPPBVKS7RV7RIXJRM5JCOG
 
- ![transaction](transaction.png)
+ ![Screenshot](transaction.png)
+ 
