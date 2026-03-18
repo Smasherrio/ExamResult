@@ -37,7 +37,7 @@ export async function addResult(studentId, subject, marks, keypair) {
 
 export async function getResult(studentId, subject) {
   const result = await server.simulateTransaction({
-    contractId: CONTRACT_ID,
+    contractId: CDM3MJS6PXQGSZ2GM6506PNELBIZSZMWWZOPPBVKS7RV7RIXJRM5JCOG,
     function: "get_result",
     args: [studentId, subject]
   });
