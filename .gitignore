@@ -4,3 +4,50 @@ target
 # Local settings
 .soroban
 .stellar
+
+# Environment variables - NEVER commit sensitive data
+.env
+.env.local
+.env.*.local
+.env.production
+
+# Dependencies
+node_modules/
+Cargo.lock
+*.pem
+*.key
+*.secret
+
+# Build outputs
+dist/
+build/
+*.wasm
+*.o
+*.rlib
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Private keys and sensitive data
+private_key
+.private
+secrets/
+
+# Temporary files
+tmp/
+temp/
+*.tmp

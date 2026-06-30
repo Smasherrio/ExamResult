@@ -16,6 +16,7 @@ The smart contract allows authorized users to:
 - Store results permanently on the blockchain
 
 Each record contains:
+
 - Student ID
 - Subject
 - Marks obtained
@@ -30,25 +31,54 @@ Once stored, the results can be retrieved by querying the contract with the stud
 - Simple API functions for storing and retrieving results
 - Built using Rust and Soroban SDK
 - Runs on the Stellar blockchain network
+- **NEW**: Admin-only authorization for adding results
+- **NEW**: Complete input validation and error handling
+- **NEW**: Rate limiting and security hardening
+
+## Authorization & Security
+
+⚠️ **IMPORTANT**: The smart contract now implements access control:
+
+- **`add_result()`**: Only the authorized admin can add exam results
+- **`get_result()`**: Anyone can retrieve exam results (read-only)
+
+Before deploying, set the admin address in [contracts/hello-world/src/lib.rs](contracts/hello-world/src/lib.rs):
+
+```rust
+const ADMIN: &str = "YOUR_ADMIN_STELLAR_ADDRESS";
+```
+
+After deployment, initialize the contract by calling:
+
+```javascript
+await contractClient.init(adminAddress);
+```
+
+For frontend setup and security configuration, see [frontend/SECURITY_SETUP.md](frontend/SECURITY_SETUP.md).
 
 ## Smart Contract Functions
 
 ### add_result
+
 Stores a student's exam result on the blockchain.
 
 Parameters:
+
 - `student_id` – Unique ID of the student
 - `subject` – Subject name
 - `marks` – Marks obtained in the exam
 
 ### get_result
+
 Retrieves the stored exam result.
 
 Parameters:
+
 - `student_id` – Student identifier
 - `subject` – Subject name
 
 Returns:
+
 - ResultRecord containing student ID, subject, and marks.
 
 ## Technologies Used
@@ -59,7 +89,6 @@ Returns:
 
 ## Deployed Smart Contract Link
 
- https://lab.stellar.org/r/testnet/contract/CDM3MJS6PXQGSZ2GM65O6PNELBIZSZMWWZOPPBVKS7RV7RIXJRM5JCOG
+https://lab.stellar.org/r/testnet/contract/CDM3MJS6PXQGSZ2GM65O6PNELBIZSZMWWZOPPBVKS7RV7RIXJRM5JCOG
 
- ![Screenshot](transaction.png)
- 
+![Screenshot](transaction.png)
