@@ -1,5 +1,7 @@
 # ExamResult Soroban Smart Contract
 
+**GitHub Repository:** [github.com/Smasherrio/ExamResult](https://github.com/Smasherrio/ExamResult)
+
 ## Project Description
 
 ExamResult is a decentralized smart contract built on the Stellar blockchain using the Soroban smart contract platform.  
@@ -87,8 +89,77 @@ Returns:
 - Soroban SDK
 - Stellar Blockchain
 
-## Deployed Smart Contract Link
+## Deployment Information
 
-https://lab.stellar.org/r/testnet/contract/CDM3MJS6PXQGSZ2GM65O6PNELBIZSZMWWZOPPBVKS7RV7RIXJRM5JCOG
+### Contract Deployment
 
-![Screenshot](transaction.png)
+**Deployed on:** Stellar Testnet  
+**Contract ID:** `CDM3MJS6PXQGSZ2GM65O6PNELBIZSZMWWZOPPBVKS7RV7RIXJRM5JCOG`  
+**Testnet Explorer:** [Stellar Lab - ExamResult Contract](https://lab.stellar.org/r/testnet/contract/CDM3MJS6PXQGSZ2GM65O6PNELBIZSZMWWZOPPBVKS7RV7RIXJRM5JCOG)
+
+### Admin Configuration
+
+**Authorized Admin Address:** `GDY3TAJYMA5GTIETTSQLTSIUCEDEJJPXC2SBP2KUSFFKPLJVIMIICSP2`
+
+The contract implements admin-only authorization for adding exam results. The admin address is configured in the contract initialization process. Only the authorized admin can execute the `add_result()` function.
+
+## Development Setup
+
+### Prerequisites
+
+- Rust 1.70+
+- Stellar CLI tools
+- Node.js 16+
+- Stellar testnet account with lumens
+
+### Building the Contract
+
+```bash
+# Navigate to contract directory
+cd contracts/hello-world
+
+# Build the contract
+cargo build --target wasm32-unknown-unknown --release
+
+# Run tests
+cargo test
+```
+
+### Deployment Script
+
+A deployment script is provided to easily deploy the contract to testnet:
+
+```bash
+# Deploy contract (replace with your public key)
+node deploy.js YOUR_PUBLIC_KEY
+```
+
+The script handles:
+- WASM file compilation verification
+- Contract instantiation on testnet
+- RPC communication with Stellar servers
+
+## Frontend
+
+The frontend is a Vite-based web application that provides an interface to interact with the smart contract:
+
+- **Location:** `frontend/`
+- **Framework:** Vanilla JavaScript with Vite
+- **Wallet Integration:** Stellar Freighter
+- **SDK:** @stellar/stellar-sdk
+
+### Running Frontend Locally
+
+```bash
+cd frontend
+npm install
+npm run dev
+```
+
+## Project Statistics
+
+- **Total Commits:** 7 meaningful commits tracking development progress
+- **Open Source:** Public repository on GitHub
+- **License:** See repository for details
+
+![Deployment Screenshot](transaction.png)
